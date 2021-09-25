@@ -10,14 +10,14 @@ const Footer = () => {
 
   return (
     <Box as="footer" variant="footer">
-      {/* <button
+      <button
         sx={{ variant: `buttons.toggle`, fontWeight: `semibold`, display: `block`, mx: `auto`, mb: 3 }}
         onClick={toggleColorMode}
         type="button"
         aria-label="Toggle dark mode"
       >
         {isDark ? `Light` : `Dark`}
-      </button> */}
+      </button>
       Mahmoud Amr &copy; {new Date().getFullYear()}.
       <Flex
         sx={{
