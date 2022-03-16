@@ -16,7 +16,13 @@ const Contact = ({
   factor?: number;
 }) => (
   <div>
-    <Divider fill="divider" speed={0.2} offset={offset} factor={factor}>
+    <Divider
+      fill="divider"
+      speed={0.2}
+      offset={offset}
+      factor={factor}
+      zIndex={2}
+    >
       <div
         sx={{
           position: `absolute`,
@@ -54,10 +60,23 @@ const Contact = ({
     <Content speed={0.4} offset={offset} factor={factor}>
       <Inner>
         <ContactMDX />
+        <a href="/resume.pdf" target="_blank">
+          <div sx={{ display: "inline-flex", justifyContent: "center" }}>
+            <h2 sx={{ marginRight: "1rem" }}>My Resume</h2>
+            <UpDown>
+              <img
+                src="/cv.png"
+                width={30}
+                height={30}
+                sx={{ position: "relative", top: "20%" }}
+              />
+            </UpDown>
+          </div>
+        </a>
       </Inner>
       <Footer />
     </Content>
-    <Divider speed={0.1} offset={offset} factor={factor}>
+    <Divider speed={0.1} offset={offset} factor={factor} zIndex={100}>
       <UpDown>
         <Svg
           icon="upDown"
@@ -74,62 +93,6 @@ const Contact = ({
           color="icon_darkest"
           left="25%"
           top="5%"
-        />
-        <img
-          src="https://image.flaticon.com/icons/svg/141/141009.svg"
-          alt=""
-          color="icon_orange"
-          sx={{
-            position: `absolute`,
-            width: `50px`,
-            top: `20%`,
-            left: `10%`,
-            "@media screen and (max-width: 450px)": {
-              display: "none",
-            },
-          }}
-        />
-        <img
-          src="https://image.flaticon.com/icons/svg/140/140994.svg"
-          alt=""
-          color="icon_orange"
-          sx={{
-            position: `absolute`,
-            width: `90px`,
-            bottom: `70%`,
-            left: `60%`,
-            "@media screen and (max-width: 450px)": {
-              display: "none",
-            },
-          }}
-        />
-        <img
-          src="https://image.flaticon.com/icons/svg/141/141015.svg"
-          alt=""
-          color="icon_orange"
-          sx={{
-            position: `absolute`,
-            width: `75px`,
-            bottom: `100%`,
-            left: `70%`,
-            "@media screen and (max-width: 450px)": {
-              display: "none",
-            },
-          }}
-        />
-        <img
-          src="https://image.flaticon.com/icons/svg/141/141039.svg"
-          alt=""
-          color="icon_orange"
-          sx={{
-            position: `absolute`,
-            width: `75px`,
-            bottom: `85%`,
-            left: `30%`,
-            "@media screen and (max-width: 450px)": {
-              display: "none",
-            },
-          }}
         />
       </UpDown>
       <UpDownWide>

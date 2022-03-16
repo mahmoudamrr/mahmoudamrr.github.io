@@ -7,7 +7,7 @@ import { UpDown, UpDownWide } from "../styles/animations";
 // @ts-ignore
 import AboutMDX from "../sections/about.mdx";
 
-const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
+const About = ({ offset, factor }: { offset: number; factor?: number }) => (
   <div>
     <Divider
       bg="divider"
@@ -15,8 +15,9 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
       speed={0.2}
       offset={offset}
       factor={factor}
+      zIndex={2}
     />
-    <Divider speed={0.1} offset={offset} factor={factor}>
+    <Divider speed={0.1} offset={offset + 0.1} factor={factor} zIndex={10}>
       <UpDown>
         <Svg
           icon="box"
@@ -30,7 +31,7 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
           icon="upDown"
           hiddenMobile
           width={8}
-          color="icon_darkest"
+          color="icon_blue"
           left="70%"
           top="20%"
         />
@@ -38,53 +39,19 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
           icon="triangle"
           width={8}
           stroke
-          color="icon_darkest"
-          left="25%"
-          top="5%"
+          color="icon_brightest"
+          left="35%"
+          top="15%"
         />
         <Svg
           icon="upDown"
           hiddenMobile
           width={24}
           color="icon_orange"
-          left="80%"
-          top="80%"
-        />
-      </UpDown>
-      <UpDownWide>
-        <Svg
-          icon="arrowUp"
-          hiddenMobile
-          width={16}
-          color="icon_purple"
-          left="5%"
-          top="80%"
-        />
-        <Svg
-          icon="triangle"
-          width={12}
-          stroke
-          color="icon_brightest"
-          left="95%"
+          left="90%"
           top="50%"
         />
-        <Svg
-          icon="circle"
-          hiddenMobile
-          width={6}
-          color="icon_brightest"
-          left="85%"
-          top="15%"
-        />
-        <Svg
-          icon="upDown"
-          hiddenMobile
-          width={8}
-          color="icon_darkest"
-          left="45%"
-          top="10%"
-        />
-      </UpDownWide>
+      </UpDown>
       <Svg
         icon="circle"
         hiddenMobile
@@ -93,19 +60,18 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
         left="4%"
         top="20%"
       />
-      <Svg icon="circle" width={12} color="icon_darkest" left="70%" top="60%" />
-      <Svg icon="box" width={6} color="icon_orange" left="10%" top="10%" />
-      <Svg icon="box" width={12} color="icon_darkest" left="20%" top="30%" />
+      <Svg icon="circle" width={12} color="icon_orange" left="10%" top="60%" />
+      <Svg icon="box" width={12} color="icon_blue" left="20%" top="30%" />
       <Svg
         icon="hexa"
         width={8}
         stroke
-        color="icon_darkest"
+        color="icon_blue"
         left="80%"
         top="70%"
       />
     </Divider>
-    <Content speed={0.4} offset={offset} factor={factor}>
+    <Content speed={0.4} offset={offset + 0.1} factor={factor}>
       <Inner>
         <AboutMDX />
       </Inner>
