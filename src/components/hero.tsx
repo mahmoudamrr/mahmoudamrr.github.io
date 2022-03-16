@@ -50,7 +50,7 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => {
             height: "35%",
             position: "relative",
             right: "35%",
-            top: "40%",
+            top: "50%",
             "@media screen and (max-width: 600px)": {
               height: "25%",
             },
@@ -77,8 +77,9 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => {
               position: `relative`,
               top: `10%`,
               width: "55%",
+              margin: "1rem",
               "@media screen and (max-width: 600px)": {
-                top: "50%",
+                top: "60%",
                 width: "60%",
               },
             }}

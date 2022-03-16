@@ -1,11 +1,11 @@
 {
   "private": true,
-  "name": "cara",
-  "description": "Playful and Colorful One-Page portfolio featuring Parallax effects and animations",
+  "name": "mahmoud",
+  "description": "A Curious Mind",
   "version": "0.2.10",
-  "author": "LekoArts <hello@lekoarts.de>",
+  "author": "Mahmoud Amr",
   "license": "0BSD",
-  "starter-name": "gatsby-starter-portfolio-cara",
+  "starter-name": "Mahmoud Amr",
   "scripts": {
     "build": "gatsby build",
     "deploy": "gatsby build && gh-pages -d public",

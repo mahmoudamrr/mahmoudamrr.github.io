@@ -82,7 +82,7 @@ const Stack = ({ offset, factor }: { offset: number; factor?: number }) => (
           }}
         >
           <img
-            src="/html-5.png"
+            src="/html.png"
             width={50}
             alt=""
             color="icon_orange"
@@ -179,7 +179,7 @@ const Stack = ({ offset, factor }: { offset: number; factor?: number }) => (
             sx={{ margin: "1rem" }}
           />
           <img
-            src="/mysql.png"
+            src="/sql.png"
             width={50}
             alt=""
             color="icon_orange"
