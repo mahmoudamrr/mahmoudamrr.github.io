@@ -13,8 +13,8 @@ const Stack = ({ offset, factor }: { offset: number; factor?: number }) => (
       bg="linear-gradient(to right, #00416a, #e4e5e6);"
       sx={{ clipPath: `polygon(0 15%, 100% 25%, 100% 85%, 0 75%)` }}
       speed={-0.2}
-      offset={offset}
-      factor={factor + 0.2}
+      offset={offset - 0.3}
+      factor={factor + 0.4}
       zIndex={2}
     />
     <Divider speed={0.1} offset={offset} factor={factor} zIndex={100}>

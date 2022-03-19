@@ -24,19 +24,19 @@ const theme = merge(tailwind, {
     icon_pink: tailwind.colors.pink[5],
     icon_purple: tailwind.colors.purple[6],
     icon_green: tailwind.colors.green[5],
-    modes: {
-      light: {
-        text: tailwind.colors.gray[8],
-        heading: tailwind.colors.black,
-        primary: tailwind.colors.orange[7],
-        background: tailwind.colors.gray[1],
-        divider: tailwind.colors.gray[2],
-        textMuted: tailwind.colors.gray[6],
-        icon_brightest: tailwind.colors.gray[2],
-        icon_darker: tailwind.colors.gray[4],
-        icon_darkest: tailwind.colors.gray[6],
-      },
-    },
+    // modes: {
+    //   light: {
+    //     text: tailwind.colors.gray[8],
+    //     heading: tailwind.colors.black,
+    //     primary: tailwind.colors.orange[7],
+    //     background: tailwind.colors.gray[1],
+    //     divider: tailwind.colors.gray[2],
+    //     textMuted: tailwind.colors.gray[6],
+    //     icon_brightest: tailwind.colors.gray[2],
+    //     icon_darker: tailwind.colors.gray[4],
+    //     icon_darkest: tailwind.colors.gray[6],
+    //   },
+    // },
   },
   breakpoints: [`400px`, `600px`, `900px`, `1200px`, `1600px`],
   footer: {
