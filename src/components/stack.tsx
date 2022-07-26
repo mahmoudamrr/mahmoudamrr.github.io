@@ -84,35 +84,35 @@ const Stack = ({ offset, factor }: { offset: number; factor?: number }) => (
           <img
             src="/html.png"
             width={50}
-            alt=""
+            alt="html"
             color="icon_orange"
             sx={{ margin: "1rem" }}
           />
           <img
             src="/css.png"
             width={50}
-            alt=""
+            alt="css"
             color="icon_orange"
             sx={{ margin: "1rem" }}
           />{" "}
           <img
             src="/js.png"
             width={50}
-            alt=""
+            alt="java-script"
             color="icon_orange"
             sx={{ margin: "1rem" }}
           />{" "}
           <img
             src="/typescript.png"
             width={50}
-            alt=""
+            alt="type-script"
             color="icon_orange"
             sx={{ margin: "1rem" }}
           />{" "}
           <img
             src="/react.png"
             width={50}
-            alt=""
+            alt="react"
             color="icon_orange"
             sx={{ margin: "1rem" }}
           />{" "}
@@ -148,7 +148,7 @@ const Stack = ({ offset, factor }: { offset: number; factor?: number }) => (
           <img
             src="/python.png"
             width={50}
-            alt=""
+            alt="python"
             color="icon_orange"
             sx={{ margin: "1rem" }}
           />
@@ -167,28 +167,28 @@ const Stack = ({ offset, factor }: { offset: number; factor?: number }) => (
           <img
             src="/nodejs.png"
             width={50}
-            alt=""
+            alt="node.js"
             color="icon_orange"
             sx={{ margin: "1rem" }}
           />{" "}
           <img
             src="/api.png"
             width={50}
-            alt=""
+            alt="APIs"
             color="icon_orange"
             sx={{ margin: "1rem" }}
           />
           <img
             src="/sql.png"
             width={50}
-            alt=""
+            alt="sql"
             color="icon_orange"
             sx={{ margin: "1rem" }}
           />
           <img
             src="/docker.png"
             width={50}
-            alt=""
+            alt="Docker"
             color="icon_orange"
             sx={{ margin: "1rem" }}
           />

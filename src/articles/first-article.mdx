@@ -1,0 +1,116 @@
+---
+path: "/first-article"
+date: "2022-03-27"
+title: "Node.JS underwater diving to a depth beyond the norm"
+imageUrl: "https://images.unsplash.com/photo-1587058571836-8562bb05e548?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1335&q=80"
+---
+
+<img src="./chase-baker-RTtUA2iBwRw-unsplash.jpg" alt="drawing" height="600" width="100%"/>
+Photo by <a href="https://unsplash.com/@sandbarproductions?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Chase Baker</a> on <a href="https://unsplash.com/s/photos/diving?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+## Introduction
+
+Nodes.js is a runtime environment that’s help us to write javascript outside the browser, because javascript needs an engine to understand the syntax and convert it to machine code so every browser have it’s own engine (google chrome have V8, firefox have spider Monkey, safari have javascript core etc…. ) this is not my article about so i will leave a link for more detalis but we will come again for V8 engine.
+
+---
+## Node source code
+
+When you download node js in your machine you got this folders https://github.com/nodejs/node
+There’s two folders we care about src folder and lib
+  - Lib folder contains all the JavaScript definition, functions and modules. It's the JavaScript side of node and you can use node's require( ) directly.
+  - Src folder contains all the C++ implementations of the above functions which node.js uses V8 and libuv internally it c++ side of node the file must be manipulated before use.
+
+we will come back for this but for now you can ...
+
+---
+## Node structure
+
+<img style={{width: '100%', height: '35rem'}} src="./node.png" alt="drawing"/>
+
+Node js runtime have many of dependencies that relay on the most important ones is V8 engine and libuv,
+And also depend on http-parser, c ares, openSsl, zlip, And boom we have node js ready to use in server side,
+
+
+### V8
+V8 is a free and open-source JavaScript engine written in c++ and javascript developed by the Chromium Project for Google Chrome and Chromium web browsers. but it was later utilized to create Node.js for server-side coding. V8 is known to be a JavaScript engine because it takes JavaScript code and executes it. The V8 interface between C++ and JavaScript is used by the native code bindings that come with Node.js, such as the fs (File System) module and the Net module.
+
+  V8 have two parts: memory heap, call stack.
+  - Memory heap: to allocate the memory used by your JavaScript program
+  - Call stack: to read your code and get executed line by line.
+
+### Libuv
+Libuv is an open source library writing in c++  for asynchronous i/o and it gives node access to the underline computer operating system, File system, networking, etc.. , beside that Libuv implement most important feuture to node js like event loop and thread pool before diving on event loop and thread pool let's discuss first what is thread mean.
+
+When we run a program on our computer  we start something called process, with a single process we can have multiple threads the thread is unit or some number of instructions that are waiting to be executed by the cpu.
+When we start use node in our computer it’s means there is a node process running in that computer and inside that process node run one single thread which means its has only one call stack that used to execute the program which means that only one thing will happens at a time its a synchronous you have to do one thing and everything else will freeze until this thing is done.
+
+But node introduce herself as non-blocking i/o how it done.
+here were event loop come so what is event loop.
+
+before going with event loop lets take look in this digram.
+<img style={{width: '100%', height: '50rem'}} src="./node- str.png" alt="drawing"/>
+But why we use c++ and where the bridge that will let them understand each other.
+
+Why? Its simple C/C++ are relatively much closer to the hardware and hence much faster than other high-level languages.
+
+How? With process.binding( ), it connects the javascript side of Node.js to the C++ side of the Node.js It's a method that grabs the C++ and makes it available inside the javascript.
+
+### Event Loop
+The event loop is what allows Node.js to perform non-blocking I/O operations — despite the fact that JavaScript is single-threaded — by offloading operations to the system kernel whenever possible.
+Since most modern kernels are multi-threaded, they can handle multiple operations executing in the background. When one of these operations completes, the kernel tells Node.js so that the appropriate callback may be added to the poll queue to eventually be executed.
+
+This is the definition worte on official node website,
+https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#event-loop-explained
+
+But what does that actually mean?
+
+Lets try to visualization on our mind what event loop really do,
+We can think of event loop like a while loop that will keep running unless the input it take is fullsy :
+
+```
+While (someCondutions) {
+  keep running with a series of phases.
+}
+```
+So what those truthy conductions is:
+- Any pending timer: setTimeout, setInterval, setImmediate.
+- Any pending OS tasks? (like a server listening to port).
+- Any pending long running operations (like fs module).
+
+Until the input is fallsy it will stop running.
+
+Event loop phases:
+```
+While (someCondutions) {
+    Phase 1: Timer
+    Phase 2:  I/O callbacks
+    Phase 3: Idle, prepare
+    Phase 4: Pole
+    Phase 5: Check
+    Phase 6: Close callbacks
+}
+```
+Let discuss what every phase do:
+- Phase 1: Timer: It handles the callbacks assigned by setTimeout & setInterval after the given time threshold is completed. 
+- Phase 2:  I/O callbacks: Handles all callbacks except the ones set by setTimeout, setInterval & setImmediate. It also does not have any close callbacks. 
+- Phase 3: Idle, prepare: Used internally. 
+- Phase 4: Pole: Pause execution. Continue when... 
+        - a new pending OS TAsk is done.
+        - a new pending Operation is done.
+        - a timer is about to complete.
+- Phase 5: Check:  look at pendingTimer. call any setImmediate
+- Phase 6: Close callbacks: Handle any 'close' events
+
+### Thread pool or is node.js is really one threaded
+
+The libuv module have a responsibillty that relevant with some functions in the standard libary the node c++ side and libuv decide to do expensive calculation outside the event loop insead they make something called the thread pool the thread pool is a series of 4 threads that use for running heavy tasks  like: 
+
+- fs: file system I/O operations
+- dns: DNS operations
+- zlib: compression operations
+- crypto: cryptography operations
+
+
+
+
+

@@ -23,6 +23,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/articles`,
+        name: `articles`
+      }
+    },
+    `gatsby-transformer-remark`,
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         lessBabel: true,
